@@ -1,0 +1,43 @@
+Carlos Emil De Vera
+2925639
+EECS 268 Lab 7
+Lab07 Write Up
+10/21/2020
+
+1. ReadMaze Class - 
+    *private members:  
+        -int row
+        -int col
+        -char **maze
+        -int m_startR;
+        -int m_startC;
+    *public methods:
+        -ReadMaze(string file): takes in file name
+        -getRow()
+        -getCol()
+        -getStartRow()
+        -getStartCol()
+        -read(string file): reads in the file, sets row,col, and maze
+        -getMaze(): returns pointer to maze array
+2. MazeWalker Class - 
+    *private members: 
+        -ReadMaze object
+        -char** maze
+        -int** visited
+        -int numSteps
+        -int col, row
+    *public methods:
+        -bool walkMaze(): walks the maze
+        -void mark(int row, int col): marks where the walker has 
+        -bool isValidMove():checks if there is passage or wall
+        -void printSolution(): prints out visited array
+        -void unMark(int row, int col): unMarks visited array due to backtracking
+3. By using if statements in the recursive function, and then calling the walker function again in the if clause,
+the function can detect if backtracking is needed when all if statements have been passed over, thus returnning false.
+This will cause the function to exit out of the if clause, undoing the move it had done previously. The visited array
+will be unMarked, removing the move that it backtracked on.
+
+4. The current position will be checked if it is an exit, otherwise it will make the necessary moves until it finds an exit.
+Once the backtracking has returned to the first move, indicating that there are no more moves left and that there was
+no exit or solution to the maze. 
+
